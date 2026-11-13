@@ -64,7 +64,10 @@ done
 if [[ "${OC_XERJ_INDEX:-0}" == "1" ]]; then
     xerj autoindex "$PWD" || {
         status=$?
-        echo "XERJ autoindex failed with status $status; continuing to OpenCode" >&2
+        # XERJ uses exit 3 for successful indexing with skipped/junk files.
+        if [[ "$status" -ne 3 ]]; then
+            echo "XERJ autoindex failed with status $status; continuing to OpenCode" >&2
+        fi
     }
 fi
 
