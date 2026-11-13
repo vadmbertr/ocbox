@@ -62,7 +62,10 @@ done
 
 # Optional explicit reindexing
 if [[ "${OC_XERJ_INDEX:-0}" == "1" ]]; then
-    xerj autoindex "$PWD"
+    xerj autoindex "$PWD" || {
+        status=$?
+        echo "XERJ autoindex failed with status $status; continuing to OpenCode" >&2
+    }
 fi
 
 # Configure GitHub HTTPS authentication
