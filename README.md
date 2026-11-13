@@ -55,7 +55,7 @@ ocbox/
 ├── dirs.txt                   # Local host paths; DO NOT commit
 ├── secrets.env                # Provider keys; DO NOT commit
 ├── home/                      # Persistent private runtime state; DO NOT commit
-└── opencode.sif               # Generated on Linux; DO NOT commit
+└── opencode.sif               # Generated on HPC; DO NOT commit
 ```
 
 ## Quick start
@@ -183,7 +183,7 @@ Ordinary runs (`./oc`) start XERJ without invoking that explicit `autoindex /wor
 
 ### local: XERJ Docker volume
 
-XERJ's index initialization failed in this setup when its data directory lived on a macOS-host bind mount, but succeeded on a Linux-native container filesystem. The launcher therefore mounts a persistent Docker named volume:
+XERJ's index initialization fails in this setup when its data directory lived on a macOS-host bind mount, but succeeds on a Linux-native container filesystem. The launcher therefore mounts a persistent Docker named volume:
 
 ```text
 ocbox-xerj  ->  /home/oc/.local/share/xerj
