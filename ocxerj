@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+export HOME=/home/oc
+
 XERJ_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/xerj"
 # needs to run on every volume creation (so once only)
 # docker run --rm --user 0 \
