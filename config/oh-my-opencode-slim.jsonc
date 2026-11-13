@@ -1,0 +1,136 @@
+{
+  "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
+  "preset": "main",
+  "autoUpdate": false,
+  "disabled_agents": [],
+  "image_routing": "auto",
+  "presets": {
+    "main": {
+      "orchestrator": {
+        "model": [
+          { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
+          // { "id": "mistral/zai-glm-5-3", "variant": "high" },
+          { "id": "openai/gpt-6.1-sol", "variant": "medium" },
+          { "id": "google-agy/claude-sonnet-5-5" }
+        ],
+        "skills": ["*"],
+        "mcps": ["*", "!context7"]
+      },
+      "oracle": {
+        "model": [
+          { "id": "openai/gpt-6.1-sol", "variant": "xhigh" },
+          { "id": "google-agy/gemini-4-argon", "variant": "high" },
+          { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
+          // { "id": "mistral/zai-glm-5-3", "variant": "high" }
+        ],
+        "skills": ["simplify", "ponytail-review", "ponytail-audit"],
+        "mcps": []
+      },
+      "explorer": {
+        "model": [
+          "alan/ARES/gpt-oss-120b",
+          "alan/mimo-v26-flash-mopd",
+          "alan/ILAAS/.qwen-3.6-35b-instruct",
+          "alan/ILAAS/.mistral-medium-latest",
+          { "id": "google-agy/gemini-3.8-flash", "variant": "low" },
+          { "id": "openai/gpt-6-luna", "variant": "low" }
+        ],
+        "skills": ["caveman"],
+        "mcps": []
+      },
+      "librarian": {
+        "model": [
+          "alan/mimo-v26-flash-mopd",
+          "alan/ARES/gpt-oss-120b",
+          "alan/ILAAS/.mistral-medium-latest",
+          { "id": "google-agy/gemini-3.8-flash", "variant": "low" },
+          { "id": "openai/gpt-6-luna", "variant": "low" }
+        ],
+        "skills": ["caveman"],
+        "mcps": ["context7", "gh_grep"]
+      },
+      "designer": {
+        "model": [
+          { "id": "google-agy/gemini-4-argon", "variant": "low" },
+          { "id": "zai-coding-plan/glm-5.3", "variant": "max" },
+          // { "id": "mistral/zai-glm-5-3", "variant": "max" },
+          { "id": "openai/gpt-6.1-sol", "variant": "medium" }
+        ],
+        "skills": ["ponytail"],
+        "mcps": []
+      },
+      "fixer": {
+        "model": [
+          { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
+          // { "id": "mistral/zai-glm-5-3", "variant": "high" },
+          { "id": "openai/gpt-6.1-sol", "variant": "medium" },
+          "alan/mimo-v26-flash-mopd"
+        ],
+        "skills": ["ponytail"],
+        "mcps": []
+      },
+      "observer": {
+        "displayName": "multimodal-looker",
+        "model": [
+          { "id": "google-agy/gemini-3.8-flash", "variant": "low" },
+          { "id": "openai/gpt-6.1-sol", "variant": "low" }
+        ],
+        "skills": [],
+        "mcps": []
+      },
+      "council": {
+        "model": [
+          { "id": "openai/gpt-6.1-sol", "variant": "high" },
+          { "id": "google-agy/gemini-4-argon", "variant": "high" },
+          { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
+          // { "id": "mistral/zai-glm-5-3", "variant": "high" }
+        ],
+        "skills": [],
+        "mcps": []
+      }
+    }
+  },
+  "council": {
+    "default_preset": "balanced",
+    "presets": {
+      "balanced": {
+        "gpt": {
+          "model": [
+            { "id": "openai/gpt-6.1-sol", "variant": "high" },
+            { "id": "openai/gpt-6.1-terra", "variant": "high" }
+          ]
+        },
+        "glm": {
+          "model": [
+            { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
+            // { "id": "mistral/zai-glm-5-3", "variant": "high" },
+            { "id": "zai-coding-plan/glm-5.3-flash", "variant": "high" }
+          ]
+        },
+        "gemini": {
+          "model": [
+            { "id": "google-agy/gemini-4-argon", "variant": "high" },
+            { "id": "google-agy/gemini-3.8-flash", "variant": "high" }
+          ]
+        }
+      },
+      "local": {
+        "gpt-oss": { "model": "alan/ARES/gpt-oss-120b" },
+        "mimo": { "model": "alan/mimo-v26-flash-mopd" },
+        "mistral": { "model": "alan/ILAAS/.mistral-medium-latest" }
+      }
+    }
+  },
+  "backgroundJobs": {
+    "concurrency": {
+      "defaultConcurrency": 3,
+      "providerConcurrency": { "alan": 0 }
+    },
+    "wallClockTimeoutMs": 900000
+  },
+  "fallback": {
+    "enabled": true,
+    "maxRetries": 1,
+    "retryDelayMs": 500
+  }
+}
