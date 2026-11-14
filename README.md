@@ -1,6 +1,6 @@
 # ocbox
 
-Run **OpenCode V2** against an entire projects directory using **Docker (Docker Desktop or OrbStack) on local** and **Apptainer on HPC**. The container also includes [XERJ](https://github.com/xerj-org/xerj), a local search/index service launched alongside OpenCode.
+Run **OpenCode V2** against an entire projects directory using **Docker (Docker Desktop or OrbStack) on local** and **Apptainer on HPC**. The container also includes [XERJ](https://github.com/xerj-org/xerj), a local search/index service launched alongside OpenCode, `uv`, `zsh`, `htop`, and `nvtop` alongside the other CLI tools.
 
 It exposes one common `oc` command on both machines, with the same container paths but independent machine-specific mounts, secrets, and persistent state.
 
@@ -27,7 +27,7 @@ The launch script:
 
 **HPC:** Apptainer, Git, Bash, a writable directory for `home/`, and sufficient permission to build/pull a SIF.
 
-The container build fetches npm packages and XERJ from the internet. First-run OpenCode plugins may also require network access; this may be restricted on some clusters.
+The container build fetches packages from the internet. First-run OpenCode plugins may also require network access; this may be restricted on some clusters.
 
 ## Repository layout
 
@@ -150,6 +150,12 @@ GIT_COMMITTER_EMAIL=your-verified-or-noreply-github-email
 At startup, `ocxerj` automatically configures GitHub CLI authentication and rewrites GitHub SSH-style remotes to HTTPS when `GH_TOKEN` is set.
 
 No SSH keys or agent forwarding are needed. To check access from inside the container, use `gh auth status` and `git ls-remote origin HEAD`.
+
+## Python packages (uv)
+
+The image ships [uv](https://docs.astral.sh/uv/). There is no system Python: on first use uv downloads a managed CPython into `/home/oc/.local/share/uv/python`, on the persistent home mount, so each machine fetches it once.
+
+Python dependencies live with each project: run `uv sync`, `uv add <pkg>` or `uv run` inside a project under `/workspace`. uv creates `.venv` in that project's directory, i.e. on the host tree of your bind mount, so installed packages survive container restarts and are visible outside the container.
 
 ## OpenCode V2 configuration, plugins, and skills
 

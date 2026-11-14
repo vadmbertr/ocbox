@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "shell": "/bin/zsh",
   "plugins": [
     "oh-my-opencode-slim@3.0.5",
     "@anthonyhaussman/opencode-agy-auth@1.5.6"
