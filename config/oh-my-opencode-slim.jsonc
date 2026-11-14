@@ -66,7 +66,7 @@
           // { "id": "mistral/zai-glm-5-3", "variant": "high" },
           "alan/mimo-v26-flash-mopd"
         ],
-        "skills": ["ponytail"],
+        "skills": ["ponytail", "verification-planning"],
         "mcps": ["xerj"]
       },
       "observer": {
