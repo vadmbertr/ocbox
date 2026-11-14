@@ -18,7 +18,7 @@
       },
       "oracle": {
         "model": [
-          { "id": "openai/gpt-6.1-sol", "variant": "xhigh" },
+          { "id": "openai/gpt-6.1-sol", "variant": "high" },
           { "id": "google-agy/gemini-4-argon", "variant": "high" },
           { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
           // { "id": "mistral/zai-glm-5-3", "variant": "high" }
@@ -61,9 +61,9 @@
       },
       "fixer": {
         "model": [
+          { "id": "openai/gpt-6.1-sol", "variant": "medium" },
           { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
           // { "id": "mistral/zai-glm-5-3", "variant": "high" },
-          { "id": "openai/gpt-6.1-sol", "variant": "medium" },
           "alan/mimo-v26-flash-mopd"
         ],
         "skills": ["ponytail"],
