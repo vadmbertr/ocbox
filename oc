@@ -18,8 +18,7 @@ fi
 # Persistent home
 mkdir -p "$BOX/home"
 
-# Container /tmp on the NAS. --containall otherwise mounts a tiny 64MiB
-# tmpfs at /tmp and /var/tmp, which fills up with bun/node compile caches.
+# Persistent tmp
 OC_TMP="$BOX/home/tmp"
 mkdir -p "$OC_TMP"
 chmod 700 "$OC_TMP"
