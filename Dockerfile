@@ -14,6 +14,8 @@ RUN mkdir -p /home/oc/.config/opencode /workspace
 RUN curl -fsSL https://xerj.org/get \
     | XERJ_INSTALL_DIR=/usr/local/bin sh
 
+COPY --from=ghcr.io/astral-sh/uv:0.13.8 /uv /uvx /usr/local/bin/
+
 COPY ocxerj /usr/local/bin/ocxerj
 RUN chmod +x /usr/local/bin/ocxerj
 
