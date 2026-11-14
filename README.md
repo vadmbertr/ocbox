@@ -27,7 +27,7 @@ The launch script:
 
 **HPC:** Apptainer, Git, Bash, a writable directory for `home/`, and sufficient permission to build/pull a SIF.
 
-The container build fetches npm packages, the `uv` image layer, and XERJ from the internet. First-run OpenCode plugins may also require network access; this may be restricted on some clusters.
+The container build fetches npm packages, the `uv` image layer, oh-my-zsh, and XERJ from the internet. First-run OpenCode plugins may also require network access; this may be restricted on some clusters.
 
 ## Repository layout
 
@@ -161,7 +161,9 @@ Python dependencies live with each project: run `uv sync`, `uv add <pkg>` or `uv
 
 Configuration is tracked under `config/` and copied by `oc` into `/home/oc/.config/opencode/` at launch. The runtime copy remains writable so OpenCode can write its generated files (such as service metadata).
 
-For this project, the OpenCode V2 config filename is `config/opencode.jsonc`.
+For this project, the OpenCode V2 config filename is `config/opencode.jsonc`. Its `"shell": "/bin/zsh"` makes zsh the shell for OpenCode's terminal and shell tools; the image installs `zsh`, `htop` and `nvtop` alongside the other CLI tools.
+
+oh-my-zsh is installed system-wide at `/usr/local/share/oh-my-zsh` and bootstrapped from the image's `/etc/zsh/zshrc`: bureau theme with the `git` and `common-aliases` plugins (`l`, `ll`, `la`, `lt` and friends). Because the bootstrap lives in `/etc/zsh/zshrc`, a personal `~/.zshrc` in the persistent home still runs afterwards and can override any of it.
 
 The `oh-my-opencode-slim` plugin, if enabled in `opencode.jsonc`, uses its separate `config/oh-my-opencode-slim.jsonc` configuration.
 
