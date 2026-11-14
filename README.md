@@ -32,30 +32,29 @@ The container build fetches npm packages and XERJ from the internet. First-run O
 
 ```text
 ocbox/
-├── Dockerfile                 # Container dependencies
-├── build.sh                   # Platform-specific build
-├── oc                         # Cross-platform launcher
-├── ocxerj                     # Starts XERJ and OpenCode inside container
-├── config/                    # Tracked, non-secret configuration
-│   ├── opencode.jsonc         # OpenCode V2 providers, plugins, MCP settings
-│   ├── oh-my-opencode-slim.jsonc
-│   ├── service.json           # MCP server configurations
-│   ├── AGENTS.md              # Optional global instructions
-│   ├── oh-my-opencode-slim    # oh-my-opencode-slim agents append files
-│   └── skills/                # SKILL.md directories (skills must exists, subdirs are optional)
-│       ├── caveman/           # Caveman skill
-│       ├── ponytail/          # Ponytail skill
-│       ├── ponytail-review/   # Ponytail review skill
-│       ├── ponytail-audit/    # Ponytail audit skill
-│       ├── ponytail-help/     # Ponytail help skill
-│       ├── ponytail-gain/     # Ponytail gain skill
-│       └── ponytail-debt/     # Ponytail debt skill
-├── dirs.example.txt           # Example directory mappings
-├── secrets.example.env        # Example secrets placeholders
-├── dirs.txt                   # Local host paths; DO NOT commit
-├── secrets.env                # Provider keys; DO NOT commit
-├── home/                      # Persistent private runtime state; DO NOT commit
-└── opencode.sif               # Generated on HPC; DO NOT commit
+├── Dockerfile                          # Container dependencies
+├── build.sh                            # Platform-specific build
+├── oc                                  # Cross-platform launcher
+├── ocxerj                              # Starts XERJ and OpenCode inside container
+├── config/                             # Tracked, non-secret configuration
+│   ├── opencode.jsonc                  # OpenCode V2 providers, plugins, MCP settings
+│   ├── oh-my-opencode-slim.jsonc       # omo-slim agents configuration
+│   ├── AGENTS.md                       # Optional global instructions
+│   ├── oh-my-opencode-slim             # omo-slim agents append files
+│   └── skills/                         # SKILL.md directories
+│       ├── caveman/                    # Caveman skill
+│       ├── ponytail/                   # Ponytail skill
+│       ├── ponytail-review/            # Ponytail review skill
+│       ├── ponytail-audit/             # Ponytail audit skill
+│       ├── ponytail-help/              # Ponytail help skill
+│       ├── ponytail-gain/              # Ponytail gain skill
+│       └── ponytail-debt/              # Ponytail debt skill
+├── dirs.example.txt                    # Example directory mappings
+├── secrets.example.env                 # Example secrets placeholders
+├── dirs.txt                            # Local host paths; DO NOT commit
+├── secrets.env                         # Provider keys; DO NOT commit
+├── home/                               # Persistent private runtime state; DO NOT commit
+└── opencode.sif                        # Generated on HPC; DO NOT commit
 ```
 
 ## Quick start
