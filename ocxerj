@@ -2,6 +2,9 @@
 set -euo pipefail
 
 export HOME=/home/oc
+# Terminal panes resolve their shell from $SHELL only (the `shell` config is
+# ignored on that path), so set it explicitly for the opencode service.
+export SHELL=/bin/zsh
 
 XERJ_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/xerj"
 # needs to run on every volume creation (so once only)

@@ -35,6 +35,9 @@ RUN chmod +x /usr/local/bin/ocxerj
 
 ENV HOME=/home/oc
 ENV LANG=C.UTF-8
+# OpenCode's terminal panes resolve their shell from $SHELL only, so the
+# service must have it set or panes fall back to bash.
+ENV SHELL=/bin/zsh
 
 WORKDIR /workspace
 
