@@ -49,6 +49,13 @@ case "$RUNTIME" in
         ;;
 
     apptainer)
+        # Keep the OCI->SIF conversion temp dir and the layer cache on the
+        # NAS instead of the login node's small root /tmp and ~/.apptainer.
+        APPTAINER_TMP="$BOX/home/.apptainer"
+        mkdir -p "$APPTAINER_TMP/cache"
+        export APPTAINER_TMPDIR="$APPTAINER_TMP"
+        export APPTAINER_CACHEDIR="$APPTAINER_TMP/cache"
+
         # Convert OCI image to Apptainer SIF
         apptainer pull --force \
             "$SIF" \
