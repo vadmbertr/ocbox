@@ -9,7 +9,11 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        git gh curl ca-certificates ripgrep \
        openssh-client less procps \
-       zsh htop nvtop \
+       zsh htop nvtop vim \
+       rsync parallel \
+       jq pigz zstd lz4 xz-utils bzip2 \
+       ncdu tree pv progress \
+       file lsof strace zip unzip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git /usr/local/share/oh-my-zsh \
