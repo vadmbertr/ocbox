@@ -6,6 +6,12 @@ export HOME=/home/oc
 # ignored on that path), so set it explicitly for the opencode service.
 export SHELL=/bin/zsh
 
+# Reports only read saved records; they do not need XERJ or a model request.
+if [[ "${1:-}" == emissions ]]; then
+    shift
+    exec oc-emissions "$@"
+fi
+
 XERJ_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/xerj"
 # needs to run on every volume creation (so once only)
 # docker run --rm --user 0 \

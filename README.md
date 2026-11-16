@@ -19,6 +19,7 @@ The launch script:
 - Reads optional API keys from `secrets.env`.
 - Hands the host's GPU to the container when there is one.
 - Runs `ocxerj`, which starts XERJ and then OpenCode.
+- Loads a local EcoLogits plugin to estimate the footprint of model requests.
 - Can start in a particular project using `OC_PROJECT` while leaving the **entire** `/workspace` tree available.
 
 ## Prerequisites
@@ -172,6 +173,46 @@ config/skills/<skill-name>/SKILL.md
 ```
 
 For example, Caveman or Ponytail variants can live alongside your own skills. On launch they are copied into `/home/oc/.config/opencode/skills/`. Project-specific skills should instead live in that project's own OpenCode configuration.
+
+## Estimated model emissions
+
+New images include a local OpenCode plugin using **EcoLogits.js 3.0.0**.
+It records estimates automatically while OpenCode runs, including requests from
+subagents. OpenAI, Z.ai, Google AGY, Alan and direct Mistral requests are considered;
+the monitor does not depend on which providers are enabled in OMO-Slim.
+
+Read the saved totals without starting OpenCode or XERJ:
+
+```bash
+./oc emissions
+./oc emissions --json
+./oc emissions --session SESSION_ID
+```
+
+Inside a container terminal, use `oc-emissions` with the same options.
+Reports show estimated CO₂-equivalent emissions, electricity use, and request
+coverage. Unsupported requests are listed, not silently counted as zero.
+The report itself makes no model request.
+
+Records live under `/home/oc/.local/share/ocbox/emissions` on the persistent home
+mount. Each machine keeps its own history, across projects and container restarts.
+Only request identifiers, model names, usage counts and estimation details are
+saved—not prompts, generated text or credentials. Estimates are calculated locally;
+no usage records are sent to EcoLogits.
+
+**These are estimates, not power measurements.** Alan uses France's electricity
+mix, but its server and cooling details are assumptions unless supplied separately.
+Other services use the available EcoLogits model and hosting assumptions; the
+model's author is not necessarily its hosting provider. Unknown models, missing
+usage and unidentifiable requests make coverage incomplete. The records start when
+the plugin is enabled; this does not reconstruct historical OpenCode use or measure
+the container's shell commands and builds.
+
+See [`ecologits/README.md`](ecologits/README.md) for mappings, assumptions and
+coverage limits. OpenCode is pinned to **2.3.0** to match the plugin interface.
+After updating this repository, rebuild the Docker image with `./build.sh build`.
+For Apptainer, first publish the updated image, then run `./build.sh` on the cluster;
+an existing SIF does not gain the monitor automatically.
 
 ## XERJ search and persistence
 
