@@ -1,4 +1,12 @@
+## Reporting to humans
+
+Use a human-friendly vocabulary and syntax. Avoid terse, highly structured, dense with technical jargon, abbreviations, shorthand, and implicit context.
+
+## Additional skills
+
 Before coding-related work, load the ponytail skill unless already loaded. Before nontrivial implementation, load the verification-planning skill unless already loaded. Delegation does not load skills into child agents; instruct each child to load its relevant skills.
+
+## Discovery using XERJ
 
 Prefer XERJ for broad discovery in unfamiliar repositories and repeated cross-file searches when available. Reuse an existing project index; create or refresh one only when expected search work justifies the cost. Assign one indexing owner to avoid duplicate builds, and pass the index prefix, source root, and indexing status to relevant specialists. Call xerj_map before querying an autoindexed corpus, and verify findings against current source before relying on them. Use read/grep/AST directly for known paths, small changes, and exact local lookups. If XERJ is unavailable, fall back without blocking.
 
