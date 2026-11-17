@@ -1,7 +1,6 @@
 
 FROM node:22-bookworm-slim
 
-# nvtop ships in Debian's contrib component, which the base image leaves disabled.
 RUN echo 'deb http://deb.debian.org/debian bookworm main contrib' \
       > /etc/apt/sources.list.d/contrib.list
 
