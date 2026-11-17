@@ -7,6 +7,8 @@ on:
     paths:
       - Dockerfile
       - ocxerj
+      - oc-emissions
+      - ecologits/**
       - .github/workflows/image.yml
 
 permissions:

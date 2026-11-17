@@ -24,7 +24,13 @@ RUN git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git /usr/local/share/
         'source "$ZSH/oh-my-zsh.sh"' \
         >> /etc/zsh/zshrc
 
-RUN npm install -g @opencode/cli bun
+RUN npm install -g @opencode/cli@2.3.0 bun
+
+COPY ecologits/package.json ecologits/package-lock.json /opt/ocbox-ecologits/
+RUN npm ci --omit=dev --prefix /opt/ocbox-ecologits
+COPY ecologits/ /opt/ocbox-ecologits/
+COPY oc-emissions /usr/local/bin/oc-emissions
+RUN chmod +x /usr/local/bin/oc-emissions
 
 RUN mkdir -p /home/oc/.config/opencode /workspace
 
