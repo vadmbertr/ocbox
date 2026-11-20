@@ -17,11 +17,20 @@
         "apiKey": "{env:ALAN_API_KEY}"
       },
       "models": {
-        "ILAAS/.mistral-medium-latest": {
-          "name": "Mistral Medium 3.5 128B (large)"
+        "ARES/qwen-3.8-27b": {
+          "name": "Qwen 3.8 27b (medium)"
         },
-        "ILAAS/.mistral-small-4-119b": {
-          "name": "Mistral Small 4 119b (large)"
+        "ARES/gemma-4-31b": {
+          "name": "Gemma 4 31b (medium)"
+        },
+        "ARES/gpt-oss-120b": {
+          "name": "GPT-OSS 120B (large)"
+        },
+        "ARES/mimo-v26-flash-mopd": {
+          "name": "MiMo-V2.6-Flash 309B (large)"
+        },
+        "DeepSeek-V4.1-Flash": {
+          "name": "DeepSeek-V4.1-Flash 763B (large)"
         },
         "ILAAS/.qwen-3.6-35b-instruct": {
           "name": "Qwen 3.6 35b instruct (medium)"
@@ -35,8 +44,11 @@
         "ILAAS/.llama-3.1-8b": {
           "name": "Llama 3.1 8b (small)"
         },
-        "ARES/gpt-oss-120b": {
-          "name": "GPT-OSS 120B (large)"
+        "ILAAS/.mistral-medium-latest": {
+          "name": "Mistral Medium 3.5 128B (large)"
+        },
+        "ILAAS/.mistral-small-4-119b": {
+          "name": "Mistral Small 4 119b (large)"
         },
         "mimo-v26-flash-mopd": {
           "name": "MiMo-V2.6-Flash 309B (large)"

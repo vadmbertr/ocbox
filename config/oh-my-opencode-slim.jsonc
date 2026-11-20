@@ -10,7 +10,7 @@
         "model": [
           { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
           // { "id": "mistral/zai-glm-5-3", "variant": "high" },
-          { "id": "openai/gpt-6.1-sol", "variant": "medium" },
+          { "id": "openai/gpt-6.2-sol", "variant": "medium" },
           { "id": "google-agy/claude-sonnet-5-5" }
         ],
         "skills": ["*"],
@@ -18,7 +18,7 @@
       },
       "oracle": {
         "model": [
-          { "id": "openai/gpt-6.1-sol", "variant": "high" },
+          { "id": "openai/gpt-6.2-sol", "variant": "high" },
           { "id": "google-agy/gemini-4-argon", "variant": "high" },
           { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
           // { "id": "mistral/zai-glm-5-3", "variant": "high" }
@@ -29,9 +29,15 @@
       "explorer": {
         "model": [
           "alan/ARES/gpt-oss-120b",
+          "alan/ARES/mimo-v26-flash-mopd",
           "alan/mimo-v26-flash-mopd",
           "alan/ILAAS/.qwen-3.6-35b-instruct",
           "alan/ILAAS/.mistral-medium-latest",
+          "alan/DeepSeek-V4.1-Flash",
+          "alan/ILAAS/.qwen-3.8-27b",
+          "alan/ARES/.qwen-3.8-27b",
+          "alan/ARES/gemma-4-31b",
+          "alan/ILAAS/.gemma-4-31b",
           { "id": "google-agy/gemini-3.8-flash", "variant": "low" },
           { "id": "openai/gpt-6-luna", "variant": "low" }
         ],
@@ -40,9 +46,15 @@
       },
       "librarian": {
         "model": [
+          "alan/ARES/mimo-v26-flash-mopd",
           "alan/mimo-v26-flash-mopd",
           "alan/ARES/gpt-oss-120b",
           "alan/ILAAS/.mistral-medium-latest",
+          "alan/DeepSeek-V4.1-Flash",
+          "alan/ILAAS/.qwen-3.8-27b",
+          "alan/ARES/.qwen-3.8-27b",
+          "alan/ARES/gemma-4-31b",
+          "alan/ILAAS/.gemma-4-31b",
           { "id": "google-agy/gemini-3.8-flash", "variant": "low" },
           { "id": "openai/gpt-6-luna", "variant": "low" }
         ],
@@ -54,14 +66,14 @@
           { "id": "google-agy/gemini-4-argon", "variant": "low" },
           { "id": "zai-coding-plan/glm-5.3", "variant": "max" },
           // { "id": "mistral/zai-glm-5-3", "variant": "max" },
-          { "id": "openai/gpt-6.1-sol", "variant": "medium" }
+          { "id": "openai/gpt-6.2-sol", "variant": "medium" }
         ],
         "skills": ["ponytail"],
         "mcps": []
       },
       "fixer": {
         "model": [
-          { "id": "openai/gpt-6.1-sol", "variant": "medium" },
+          { "id": "openai/gpt-6.2-sol", "variant": "medium" },
           { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
           // { "id": "mistral/zai-glm-5-3", "variant": "high" },
           "alan/mimo-v26-flash-mopd"
@@ -73,14 +85,14 @@
         "displayName": "multimodal-looker",
         "model": [
           { "id": "google-agy/gemini-3.8-flash", "variant": "low" },
-          { "id": "openai/gpt-6.1-sol", "variant": "low" }
+          { "id": "openai/gpt-6.2-sol", "variant": "low" }
         ],
         "skills": [],
         "mcps": []
       },
       "council": {
         "model": [
-          { "id": "openai/gpt-6.1-sol", "variant": "high" },
+          { "id": "openai/gpt-6.2-sol", "variant": "high" },
           { "id": "google-agy/gemini-4-argon", "variant": "high" },
           { "id": "zai-coding-plan/glm-5.3", "variant": "high" },
           // { "id": "mistral/zai-glm-5-3", "variant": "high" }
@@ -96,7 +108,7 @@
       "balanced": {
         "gpt": {
           "model": [
-            { "id": "openai/gpt-6.1-sol", "variant": "high" },
+            { "id": "openai/gpt-6.2-sol", "variant": "high" },
             { "id": "openai/gpt-6.1-terra", "variant": "high" }
           ]
         },
@@ -116,7 +128,7 @@
       },
       "local": {
         "gpt-oss": { "model": "alan/ARES/gpt-oss-120b" },
-        "mimo": { "model": "alan/mimo-v26-flash-mopd" },
+        "mimo": { "model": "alan/ARES/mimo-v26-flash-mopd" },
         "mistral": { "model": "alan/ILAAS/.mistral-medium-latest" }
       }
     }
